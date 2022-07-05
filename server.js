@@ -41,3 +41,31 @@ app.use('*',(req,res)=>{
 app.listen(3000, () => {
     console.log(`server is listening at port ${port}`);
 });
+
+
+
+
+// FINALLY THSESE STUFFS TO CREATE A COMPLETE SERVER.
+
+// const express = require('express');
+// const path = require('path');
+// const app = express();
+// app.use(express.static(__dirname));
+
+// const port = 3000;
+
+// app.get('/', (req, res) => {
+//     res.send("Hello world");
+// });
+
+// app.get('/home', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/home.html'));
+// });
+
+// app.use('*',(req,res)=>{
+//     res.status(404).sendFile(__dirname + "/index.html");
+// });
+
+// app.listen(3000, () => {
+//     console.log(`server is listening at port ${port}`);
+// });
