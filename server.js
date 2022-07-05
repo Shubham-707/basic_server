@@ -3,8 +3,15 @@ const express = require('express');
 //path module to serve files.
 const path = require('path');
 
+
 // Instantiate express to a variable (generally, we name it ‘app’).
 const app = express();
+
+
+//load the css pages for the html page
+// To load the static server files included in the index.html use express.static 
+app.use(express.static(__dirname));
+
 
 //specify the port number where your server is going to listen.
 const port = 3000;
@@ -15,13 +22,18 @@ app.get('/', (req, res) => {
 });
 
 //Deliver HTML Files with Express
-app.get('/home', function (req, res) {
-    res.sendFile(path.join(__dirname, '/index.html'));
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, '/home.html'));
 });
 
 //about page request
 app.get('/about', (req, res) => {
     res.send("About Page");
+});
+
+//handling errors (__dirname+"index.html")
+app.use('*',(req,res)=>{
+    res.status(404).sendFile(__dirname + "/index.html");
 });
 
 // app.listen() method here takes in two parameters, the first one represents the port number and the
