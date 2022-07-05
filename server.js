@@ -1,5 +1,7 @@
- //Firstly, we need to import express to use it. It is core module.
+//Firstly, we need to import express to use it. It is core module.
 const express = require('express');
+//path module to serve files.
+const path = require('path');
 
 // Instantiate express to a variable (generally, we name it ‘app’).
 const app = express();
@@ -10,6 +12,11 @@ const port = 3000;
 //Let’s return some message when the root route(/) is requested from the browser.
 app.get('/', (req, res) => {
     res.send("Hello world");
+});
+
+//Deliver HTML Files with Express
+app.get('/home', function (req, res) {
+    res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 //about page request
